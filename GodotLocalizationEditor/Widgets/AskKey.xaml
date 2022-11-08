@@ -1,0 +1,27 @@
+﻿<Window x:Class="GodotLocalizationEditor.Widgets.AskKey"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:GodotLocalizationEditor.Widgets"
+        mc:Ignorable="d"
+        Title="Clé" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Name="LblQuestion" Grid.Column="0">Entrez la clé :</Label>
+        <TextBox Name="TxtAnswer" Grid.Column="0" Grid.Row="1" MinWidth="250">game.</TextBox>
+
+        <WrapPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button IsDefault="True" Name="BtnDialogOk" Click="btnDialogOk_Click" MinWidth="60" Margin="0,0,10,0">Valider</Button>
+            <Button IsCancel="True" MinWidth="60">Annuler</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GodotLocalizationEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="Godot Localization Editor" Height="600" Width="900">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Fichier">
+                <MenuItem Header="Ouvrir" Click="MenuItem_OnClick"/>
+                <Separator />
+                <MenuItem Header="Quitter" Click="QuitItem_OnClick"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <ComboBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" SelectedIndex="0" Name="FileBox" SelectionChanged="FileBox_OnSelectionChanged">
+                <ComboBoxItem>Fichier à éditer</ComboBoxItem>
+            </ComboBox>
+            <Button Grid.Row="0" Grid.Column="2" Name="NewButton" Click="NewButton_OnClick">Ajouter un fichier</Button>
+            <Button Grid.Row="0" Grid.Column="3" Name="SaveButton" Click="SaveButton_OnClick">Sauvegarder le fichier</Button>
+            <ListBox Grid.Row="1" Grid.Column="0" Name="KeyList" MouseDoubleClick="KeyList_OnMouseDoubleClick" SelectionChanged="KeyList_OnSelectionChanged">
+            </ListBox>
+            <Button Grid.Row="2" Grid.Column="0" Name="AddTranslationButton" Click="AddTranslationButton_OnClick">Ajouter Clé</Button>
+            <Button Grid.Row="3" Grid.Column="0" Name="DelButton" Click="DelButton_OnClick">Supprimer Clé</Button>
+            <Button Grid.Row="4" Grid.Column="0" Name="SortButton" Click="SortButton_OnClick">Trier Clés</Button>
+            <TextBox Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Name="EnBox" HorizontalScrollBarVisibility="Auto" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextChanged="EnBox_OnTextChanged"></TextBox>
+            <TextBox Grid.Row="1" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Name="FrBox" HorizontalScrollBarVisibility="Auto" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextChanged="FrBox_OnTextChanged"></TextBox>
+        </Grid>
+    </DockPanel>
 </Window>
