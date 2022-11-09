@@ -15,7 +15,7 @@ namespace GodotLocalizationEditor.Utils
             Translations = translations;
         }
 
-        public string ToLine() => Key + "," + string.Join(",", Translations.Select(x => x.Contains(',') ? '"' + x + '"' : x));
+        public string ToLine() => Key + "," + string.Join(",", Translations.Select(x => x.Contains(',') ? '"' + x.Replace("\n", "\\n").Replace("\r", "") + '"' : x.Replace("\n", "\\n").Replace("\r", "")));
 
         public static Translation FromLine(string line)
         {
@@ -46,6 +46,7 @@ namespace GodotLocalizationEditor.Utils
 
             for (var i = 0; i < translations.Count; i++)
             {
+                translations[i] = translations[i].Replace("\\n", "\n");
                 if (translations[i].StartsWith('"') && translations[i].EndsWith('"'))
                     translations[i] = translations[i].Substring(1, translations[i].Length - 2);
             }
